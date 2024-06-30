@@ -1,6 +1,7 @@
 package com.Ravicomputer.ecommerce.Controller;
 
 import com.Ravicomputer.ecommerce.Model.UserAddressModel;
+import com.Ravicomputer.ecommerce.Repository.AddressRepository;
 import com.Ravicomputer.ecommerce.Services.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class AddressCOntroller {
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private AddressRepository addressRepository;
 
     @PostMapping("/addAddress")
     public UserAddressModel addAddress(@RequestBody UserAddressModel address){
-        UserAddressModel NewAddress =addressService.addAddress(address);
-        return NewAddress;
+        return addressService.addAddress(address);
     }
 
     @GetMapping("/getAddressByUserId/{id}")
@@ -24,4 +26,5 @@ public class AddressCOntroller {
         address.setUser(null);
         return address;
     }
+
 }

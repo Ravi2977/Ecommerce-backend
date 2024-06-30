@@ -40,6 +40,7 @@ private OrdersRepository ordersRepository;
         orderModel.setBillingAddress(addressService.getByUserId(orderModel.getUser().getId()));
         orderModel.setOrderDate(LocalDate.now());
         orderModel.setExpectedDeliveryDate(LocalDate.now().plusDays(10));
+        orderModel.setNetPayableAmount(orderModel.getTotalAmount()+orderModel.getTotalAmount()*18/100);
         Set<Product> productsSet = new HashSet<>(orderModel.getProducts());
         String message  ="Your Order is placed it will delivered to you within 10 days your ordered Items are ";
         String messageToShopkeepr =" You have received an order of products be prepare on time. Delivery Address is "+orderModel.getBillingAddress().getLocality()+","+orderModel.getBillingAddress().getPinCode()+","+" and ordered items are";
@@ -68,7 +69,11 @@ private OrdersRepository ordersRepository;
         List<OrderModel> orders=orderService.getByUserId(id);
         for(int i=0;i<orders.size();i++){
             orders.get(i).getUser().setOrders(null);
+            for(int j=0;j<orders.get(i).getProducts().size();j++){
+                orders.get(i).getProducts().get(j).setProductReview(null);
+            }
         }
+
         return orders;
     }
     @PostMapping("/create_order")
