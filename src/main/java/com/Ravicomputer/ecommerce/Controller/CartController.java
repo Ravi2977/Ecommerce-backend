@@ -38,4 +38,10 @@ public class CartController {
            return cartService.removeProductByUserIdAndProductId(model.getUserId(),model.getProductId()).getProducts().size();
         }
 
+        @GetMapping("/emptyCart/{id}")
+    public String emptyCart(@PathVariable long id){
+        cartService.removeAllItemFromCart(id);
+        return "Your Cart is Empty Now";
+        }
+
 }

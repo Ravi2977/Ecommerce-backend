@@ -50,5 +50,9 @@ public Cart createCart(Cart cart){
 
         return cartRepository.save(existingCart);
     }
-
+public void removeAllItemFromCart(long id){
+    Cart cart = cartRepository.findByUserId(id);
+    cart.getProducts().clear();
+    cartRepository.save(cart);
+}
 }
