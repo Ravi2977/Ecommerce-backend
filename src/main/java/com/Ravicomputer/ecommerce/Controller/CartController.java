@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(value = {"http://localhost:3000","https://ravi-computer-ecommerce.vercel.app"})
+@CrossOrigin(value = {"http://localhost:3000","https://ecommerce-backend-bmf8.onrender.com"})
 @RequestMapping("/cart")
 public class CartController {
     @Autowired
