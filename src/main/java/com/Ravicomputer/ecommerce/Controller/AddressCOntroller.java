@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(value = {"http://localhost:3000","https://ecommerce-backend-bmf8.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://ecommerce-backend-bmf8.onrender.com", "https://ravi-computer-ecommerce.vercel.app"})
 @RequestMapping("/address")
 public class AddressCOntroller {
     @Autowired

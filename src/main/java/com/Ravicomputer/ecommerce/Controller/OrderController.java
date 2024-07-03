@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @RestController
-@CrossOrigin(value = {"http://localhost:3000","https://ecommerce-backend-bmf8.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://ecommerce-backend-bmf8.onrender.com", "https://ravi-computer-ecommerce.vercel.app"})
 @RequestMapping("/order")
 public class OrderController {
     @Autowired
