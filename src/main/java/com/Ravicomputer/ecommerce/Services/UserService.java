@@ -15,7 +15,7 @@ public class UserService {
     private EmailService emailService;
 
     public ResponseEntity<UserModel> signUp(UserModel user){
-        String text="Hi"+user.getName()+" "+" this email only for verification \n"+"Verify your email by clicking this link bellow\n"+"this is your email"+user.getEmail()+"this is your verification link \n"+"https//verificationravicomputer.com";
+        String text="Hi"+user.getName()+" "+" this email only for verification \n"+"Verify your email by clicking this link bellow\n"+"this is your email"+user.getEmail()+"this is your verification link \n"+"https://ecommerce-backend-bmf8.onrender.com/auth/setVerify/"+user.getEmail();
         emailService.sendEmail(user.getEmail(),"Verification mail",text);
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.CREATED);
     }

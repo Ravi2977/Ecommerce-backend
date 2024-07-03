@@ -181,5 +181,12 @@ private CartRepository cartRepository;
         return user;
 
     }
+    @GetMapping("/setVerify/{email}")
+    public String steVerify(@PathVariable String email){
+        UserModel userModel=userService.getByEmail(email);
+        userModel.setVerificationStatus(true);
+        userRepository.save(userModel);
+        return "You are Verified now you can Login";
+    }
 
 }
