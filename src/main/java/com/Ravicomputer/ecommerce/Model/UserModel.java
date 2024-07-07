@@ -44,11 +44,19 @@ public class UserModel implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<OrderModel> orders;
 
+    public void setPassword(String password){
+        this.password=password;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 //        SimpleGrantedAuthority simpleGrantedAuthority=new SimpleGrantedAuthority(role);
 //        return List.of(simpleGrantedAuthority);
     return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override

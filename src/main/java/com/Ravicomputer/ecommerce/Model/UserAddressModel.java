@@ -33,4 +33,6 @@ public class UserAddressModel {
     @OneToOne
     @JoinColumn(name = "user_id")
     private UserModel user;
+
+
 }
