@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(value = {"http://localhost:3000","https://ravi-computer-ecommerce.vercel.app"})
@@ -188,5 +189,16 @@ private CartRepository cartRepository;
         userRepository.save(userModel);
         return "You are Verified now you can Login";
     }
+    @PostMapping("/change")
+    public String changePassword(@RequestBody Map<String,String> model){
+        UserModel userModel = userRepository.findById(Integer.parseInt(model.get("userId")));
+        if(passwordEncoder.matches(model.get("oldPassowrd"),userModel.getPassword())){
+            userModel.setPassword(passwordEncoder.encode(model.get("newPassword")));
+            userRepository.save(userModel);
+            return "Password Updated";
+        }else{
+            return "Old password is wrong";
+        }
 
+    }
 }

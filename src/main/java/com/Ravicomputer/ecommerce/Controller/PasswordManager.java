@@ -18,16 +18,5 @@ public class PasswordManager {
     private PasswordEncoder passwordEncoder;
 
 
-    @PostMapping("/change")
-    public String changePassword(@RequestBody Map<String,String> model){
-        UserModel userModel = userRepository.findById(Integer.parseInt(model.get("userId")));
-        if(passwordEncoder.matches(model.get("oldPassowrd"),userModel.getPassword())){
-            userModel.setPassword(passwordEncoder.encode(model.get("newPassword")));
-            userRepository.save(userModel);
-            return "Password Updated";
-        }else{
-            return "Old password is wrong";
-        }
 
-    }
 }
