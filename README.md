@@ -107,6 +107,8 @@ src/main/java/com/ravi/computer/
 └── utils/
 Contributing
 Contributions are welcome! Please read the CONTRIBUTING.md for guidelines.
+Deployment:
+Deployed on render.com for free services using Docker
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
