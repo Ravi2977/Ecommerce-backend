@@ -112,6 +112,15 @@ Deployed on render.com for free services using Docker
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
+##All Endpoints
+signup: https://ecommerce-backend-bmf8.onrender.com/auth/signup
+signin: https://ecommerce-backend-bmf8.onrender.com/auth/login
+getUsers: https://ecommerce-backend-bmf8.onrender.com/auth/users
+products by category: https://ecommerce-backend-bmf8.onrender.com/auth/productByCategory/{id}
+all category: https://ecommerce-backend-bmf8.onrender.com/auth/getAllCategory
+add product : https://ecommerce-backend-bmf8.onrender.com/auth/addProduct
+get product by product id: /https://ecommerce-backend-bmf8.onrender.com/authgetProductByProductId/{id}
+
 
 Contact
 For any inquiries or feedback, please contact:
