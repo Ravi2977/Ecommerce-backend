@@ -24,7 +24,7 @@ jobs:
 
   deploy: 
     needs: build
-    runs-on: self hosted # Replace 'ec2-runner' with the actual label you assigned to your runner
+    runs-on: ip-172-31-34-174
     steps:
       - name: Pull Image from Docker Hub
         run: docker pull badboy2977/ecommercebknd:latest 
